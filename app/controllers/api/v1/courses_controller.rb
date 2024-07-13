@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Api::V1::CoursesController < ApplicationController
   def create
     course = Course.new(course_params)
@@ -20,8 +22,8 @@ class Api::V1::CoursesController < ApplicationController
   def course_params
     params.require(:course).permit(
       :name, :start_date, :end_date, :description,
-      tutors_attributes: [
-        :name, :email
+      tutors_attributes: %i[
+        name email
       ]
     )
   end

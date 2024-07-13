@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Course < ApplicationRecord
   # Associations
   has_many :tutors, dependent: :destroy
